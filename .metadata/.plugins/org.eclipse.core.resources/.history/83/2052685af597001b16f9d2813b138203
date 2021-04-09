@@ -1,0 +1,14 @@
+package pt.unl.fct.di.apdc.projindividual.util;
+
+public class RemoveData {
+	
+	public String username;
+	public String pwd;
+	
+	public RemoveData() {}
+	
+	public RemoveData(String username, String pwd) {
+		this.username = username;
+		this.pwd = pwd;
+	}
+}

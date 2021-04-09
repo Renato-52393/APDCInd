@@ -1,0 +1,14 @@
+package pt.unl.fct.di.apdc.firstwebapp.util;
+
+public class LoginData {
+	
+	public String username;
+	public String pwd;
+	
+	public LoginData() {}
+	
+	public LoginData(String username, String pwd) {
+		this.username = username;
+		this.pwd = pwd;
+	}
+}

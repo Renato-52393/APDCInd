@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.util.logging.Logger"/>
+    <fullyQualifiedTypeName name="javax.ws.rs.Consumes"/>
+    <fullyQualifiedTypeName name="javax.ws.rs.POST"/>
+    <fullyQualifiedTypeName name="javax.ws.rs.core.Response"/>
+    <fullyQualifiedTypeName name="javax.ws.rs.Produces"/>
+    <fullyQualifiedTypeName name="java.text.DateFormat"/>
+    <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+    <fullyQualifiedTypeName name="java.util.Queue"/>
+    <fullyQualifiedTypeName name="com.google.appengine.api.taskqueue.QueueFactory"/>
+    <fullyQualifiedTypeName name="com.google.appengine.api.taskqueue.TaskOptions"/>
+    <fullyQualifiedTypeName name="java.util.logging.Level"/>
+    <fullyQualifiedTypeName name="pt.unl.fct.di.apdc.firstwebapp.resources.ComputationResource"/>
+    <fullyQualifiedTypeName name="pt.unl.fct.di.apdc.firstwebapp.util.RegisterData"/>
+    <fullyQualifiedTypeName name="com.google.appengine.api.datastore.Query.CompositeFilter"/>
+    <fullyQualifiedTypeName name="com.fasterxml.jackson.databind.ser.PropertyFilter"/>
+    <fullyQualifiedTypeName name="com.google.cloud.datastore.StructuredQuery.PropertyFilter"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+    <fullyQualifiedTypeName name="javax.ws.rs.core.Context"/>
+    <fullyQualifiedTypeName name="javax.ws.rs.core.HttpHeaders"/>
+    <fullyQualifiedTypeName name="com.google.cloud.Timestamp"/>
+    <fullyQualifiedTypeName name="java.util.Calendar"/>
+    <fullyQualifiedTypeName name="com.google.cloud.datastore.StructuredQuery.CompositeFilter"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="com.google.cloud.datastore.StructuredQuery.OrderBy"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="pt.unl.fct.di.apdc.projindividual.util.AuthToken"/>
+    <fullyQualifiedTypeName name="pt.unl.fct.di.apdc.projindividual.util.RemoveData"/>
+    <fullyQualifiedTypeName name="javax.ws.rs.PUT"/>
+    <fullyQualifiedTypeName name="pt.unl.fct.di.apdc.projindividual.util.RegisterData"/>
+    <fullyQualifiedTypeName name="pt.unl.fct.di.apdc.projindividual.util.PromotionData"/>
+    <fullyQualifiedTypeName name="pt.unl.fct.di.apdc.projindividual.util.StatusData"/>
+    <fullyQualifiedTypeName name="javax.ws.rs.DELETE"/>
+    <fullyQualifiedTypeName name="javax.ws.rs.PathParam"/>
+    <fullyQualifiedTypeName name="pt.unl.fct.di.apdc.projindividual.util.PasswordUpdateData"/>
+    <fullyQualifiedTypeName name="javax.ws.rs.Path"/>
+    <fullyQualifiedTypeName name="javax.ws.rs.GET"/>
+</qualifiedTypeNameHistroy>

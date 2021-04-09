@@ -1,0 +1,63 @@
+package pt.unl.fct.di.apdc.projindividual.util;
+public class RegisterData {
+
+	//roles
+	private static final String USER = "USER";
+	private static final String GBO = "GBO";
+	private static final String GA = "GA";
+	private static final String SU = "SU";
+
+	//required
+	public String username;
+	public String email;
+	public String pwd;
+	public String pwd_conf;
+	public String role;
+	
+	//optional
+	public String profile;
+	public String phone;
+	public String mobile;
+	public String adress;
+	public String comp_adress;
+	public String local;
+
+	public RegisterData() {}
+
+	public RegisterData(String username, String email, String pwd, String pwd_conf, String profile, String phone, String mobile, String adress, String comp_adress, String local) {
+		this.username = username;
+		this.pwd = pwd;
+		this.pwd_conf = pwd_conf;
+		this.email = email;
+		this.profile = profile;
+		this.phone = phone;
+		this.mobile = mobile;
+		this.adress = adress;
+		this.comp_adress = comp_adress;
+		this.local = local;
+	}
+	
+	public void setProfile(String profile) {
+		this.profile = profile;
+	}
+	
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+	
+	public void setAdress(String adress) {
+		this.adress = adress;
+	}
+	
+	public void setCompAdress(String comp_adress) {
+		this.comp_adress = comp_adress;
+	}
+	
+	public void setLocal(String local) {
+		this.local = local;
+	}
+}

@@ -1,0 +1,69 @@
+package pt.unl.fct.di.apdc.projindividual.resources;
+
+import java.util.logging.Logger;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
+
+
+import com.google.cloud.datastore.Datastore;
+import com.google.cloud.datastore.DatastoreOptions;
+import com.google.cloud.datastore.Entity;
+import com.google.cloud.datastore.Key;
+import com.google.cloud.datastore.KeyFactory;
+import com.google.cloud.datastore.Transaction;
+
+import pt.unl.fct.di.apdc.projindividual.util.PasswordUpdateData;
+@Path("/password")
+public class PasswordUpdateResource {
+
+	private static final Logger LOG = Logger.getLogger(LoginResource.class.getName());
+	private final Datastore datastore =	DatastoreOptions.getDefaultInstance().getService();
+	private final KeyFactory userKind = datastore.newKeyFactory().setKind("User");
+	private final KeyFactory logKind = datastore.newKeyFactory().setKind("Log");
+
+	public PasswordUpdateResource() {}
+
+	@PUT
+	@Path("/update")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response doUpdate(PasswordUpdateData data) {
+
+		LOG.fine("Password update attempt by user: " + data.username);
+
+		Transaction txn = datastore.newTransaction();
+
+		try {
+			Key userKey = userKind.newKey(data.username);
+			Entity user = datastore.get(userKey);
+
+			Key logKey = logKind.newKey(data.username);
+			Entity log = datastore.get(logKey);
+
+			if(user == null) {
+				txn.rollback();
+				return Response.status(Status.BAD_REQUEST).entity("User does not exist.").build();
+			} if(log == null) {
+				txn.rollback();
+				return Response.status(Status.BAD_REQUEST).entity("User is not logged in!").build();
+			} 	
+			if(data.username.equals("")) {
+				data.username = user.getString("username");
+
+				txn.put(user, log);
+				txn.commit();
+
+			} else {
+				
+			}
+		} finally {
+			if(txn.isActive())
+				txn.rollback();
+		}
+		return Response.ok().build();
+	}
+}

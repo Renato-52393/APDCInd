@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="com.google.cloud.tools.eclipse.appengine.AppToolsLaunchConfigurationType">
+    <mapAttribute key="org.eclipse.debug.core.environmentVariables">
+        <mapEntry key="GOOGLE_APPLICATION_CREDENTIALS" value="C:\Users\Renato\Desktop\APDC\ProjIndividualAPDC\projetoindividualapdc-9c05273c61c2.json"/>
+        <mapEntry key="GOOGLE_CLOUD_PROJECT" value="projetoindividualapdc"/>
+    </mapAttribute>
+    <booleanAttribute key="org.eclipse.jdt.launching.ATTR_ATTR_USE_ARGFILE" value="false"/>
+    <booleanAttribute key="org.eclipse.jdt.launching.ATTR_SHOW_CODEDETAILS_IN_EXCEPTION_MESSAGES" value="true"/>
+    <booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_START_ON_FIRST_THREAD" value="true"/>
+    <stringAttribute key="server-id" value="App Engine Standard at localhost"/>
+</launchConfiguration>

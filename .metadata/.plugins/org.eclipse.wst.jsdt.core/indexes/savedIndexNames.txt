@@ -1,0 +1,2 @@
+INDEX VERSION 1.4+C:\Users\Renato\Desktop\APDC\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2203636134.index

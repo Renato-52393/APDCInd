@@ -1,0 +1,72 @@
+package pt.unl.fct.di.apdc.projindividual.resources;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
+
+import com.google.cloud.datastore.Datastore;
+import com.google.cloud.datastore.DatastoreOptions;
+import com.google.cloud.datastore.Entity;
+import com.google.cloud.datastore.Key;
+import com.google.cloud.datastore.KeyFactory;
+import com.google.cloud.datastore.Transaction;
+
+import pt.unl.fct.di.apdc.projindividual.util.RemoveData;
+
+@Path("/remove")
+@Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
+public class RemoveResource {
+	
+	private final Datastore datastore =	DatastoreOptions.getDefaultInstance().getService();
+	private final KeyFactory userKind = datastore.newKeyFactory().setKind("User");
+	private final KeyFactory logKind = datastore.newKeyFactory().setKind("Log");
+
+	public RemoveResource() {}
+
+	@DELETE
+	@Path("/v1")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response doRemove(RemoveData data) {
+		
+		Transaction txn = datastore.newTransaction();
+
+		try {
+			
+			Key userKey = userKind.newKey(data.username);
+			Entity user = datastore.get(userKey);
+			
+			Key logKey = logKind.newKey(data.username);
+			Entity log = datastore.get(logKey);
+
+			if(user == null) {
+				txn.rollback();
+				return Response.status(Status.BAD_REQUEST).entity("User does not exist.").build();
+			} if(log == null) {
+				txn.rollback();
+				return Response.status(Status.BAD_REQUEST).entity("User is not logged in!").build();
+			}if(data.username.equals(data.user_to_remove) && user.getString("role").equals("User")) {
+				txn.rollback();
+				return Response.status(Status.BAD_REQUEST).entity("User is not logged in!").build();
+			} if(!checkToken(log, data.username)) {
+				datastore.delete(userKey);
+				datastore.delete(logKey);
+				txn.rollback();
+			}
+		} finally {
+			if(txn.isActive())
+				txn.rollback();
+		}
+		return Response.ok().build();
+	}
+	public boolean checkToken(Entity tokenID,String username) {
+		if(!tokenID.getString("username").equals(username) || tokenID.getLong("expirationData") < System.currentTimeMillis()){
+			return false;
+		}
+		return true;
+	}
+}

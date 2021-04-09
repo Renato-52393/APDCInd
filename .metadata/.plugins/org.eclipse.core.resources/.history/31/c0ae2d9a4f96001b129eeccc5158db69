@@ -1,0 +1,19 @@
+package pt.unl.fct.di.apdc.projindividual.util;
+public class RegisterData {
+
+	public String username;
+	public String pwd;
+	public String email;
+	public String name;
+	public String confirmation;
+
+	public RegisterData() {}
+
+	public RegisterData(String username, String pwd, String confirmation,String email, String name) {
+		this.username = username;
+		this.pwd = pwd;
+		this.confirmation = confirmation;
+		this.email = email;
+		this.name = name;
+	}
+}
